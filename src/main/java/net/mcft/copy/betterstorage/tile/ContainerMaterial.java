@@ -5,14 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.mcft.copy.betterstorage.misc.BetterStorageResource;
-import net.mcft.copy.betterstorage.utils.StackUtils;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+
 import net.minecraftforge.oredict.ShapedOreRecipe;
+
+import net.mcft.copy.betterstorage.BetterStorage;
+import net.mcft.copy.betterstorage.config.GlobalConfig;
+import net.mcft.copy.betterstorage.misc.BetterStorageResource;
+import net.mcft.copy.betterstorage.utils.StackUtils;
 
 public class ContainerMaterial {
 	
@@ -76,7 +80,7 @@ public class ContainerMaterial {
 				"oOo", 'C', middle,
 				       '#', "logWood",
 				       'o', ingot,
-				       'O', block);
+				       'O', BetterStorage.globalConfig.getBoolean(GlobalConfig.cheaperReinforcedChests) ? ingot : block);
 	}
 	
 	public ResourceLocation getChestResource(boolean large) {

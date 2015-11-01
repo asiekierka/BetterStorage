@@ -69,6 +69,7 @@ public class GlobalConfig extends Config {
 	public static final String enableBackpackOpen            = "general.enableBackpackOpen";
 	public static final String enableBackpackInteraction     = "general.enableBackpackInteraction";
 	public static final String dropBackpackOnDeath           = "general.dropBackpackOnDeath";
+	public static final String keepKeysOnDeath               = "general.keepKeysOnDeath";
 	
 	public static final String cardboardBoxRows              = "general.cardboardBoxRows";
 	public static final String cardboardBoxUses              = "general.cardboardBoxUses";
@@ -82,6 +83,8 @@ public class GlobalConfig extends Config {
 	public static final String enableHelpTooltips            = "general.enableHelpTooltips";
 	public static final String enableWarningMessages         = "general.enableWarningMessages";
 	public static final String enableChristmasEvent          = "general.enableChristmasEvent";
+
+	public static final String cheaperReinforcedChests       = "recipes.cheapReinforcedChests";
 	
 	
 	public GlobalConfig(File file) {
@@ -175,6 +178,14 @@ public class GlobalConfig extends Config {
 		// Key / Lock settings
 		new BooleanSetting(this, lockBreakable, true).setSynced().setComment(
 				"If disabled, turns off the ability to break locks off of locked containers using tools.");
+		new BooleanSetting(this, keepKeysOnDeath, false).setSynced().setComment(
+				"If enabled, players keep their keys on death. I call that \"Easy Modo?!\"."
+		).setRequiresMcRestart(true);
+
+		// Recipe settings
+		new BooleanSetting(this, cheaperReinforcedChests, false).setSynced().setComment(
+				"If enabled, reinforced chests require an ingot in place of a block of a metal."
+		).setRequiresMcRestart(true);
 		
 		// Miscellaneous settings
 		new BooleanSetting(this, enableHelpTooltips, true).setComment(
